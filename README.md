@@ -1,25 +1,26 @@
-Simulazione di Rete Distribuita Token-Based con Lista Concatenata Circolare di Thread
-📘 Descrizione del progetto
-Questo progetto propone una simulazione didattica di una rete distribuita token-based, implementata in Java mediante una lista concatenata circolare di thread. Ogni nodo della rete è modellato come un thread autonomo, collegato al successivo in una struttura circolare, e partecipa al protocollo di mutua esclusione attraverso il passaggio di un token.
+# 🧵 Simulazione di Token Ring in Java — Lista Concatenata Circolare di Thread
 
-L’obiettivo è fornire agli studenti un modello concreto e osservabile del comportamento cooperativo tra processi distribuiti, enfatizzando concetti come sincronizzazione, causalità, e gestione del controllo.
+[![Java](https://img.shields.io/badge/linguaggio-Java-blue.svg)](https://www.oracle.com/java/)
+[![Licenza](https://img.shields.io/badge/licenza-MIT-green.svg)](LICENSE)
+[![Finalità](https://img.shields.io/badge/finalità-Didattica-lightgrey.svg)]()
 
-🎯 Obiettivi didattici
-Comprendere il funzionamento di reti distribuite basate su token.
+## 📘 Descrizione
 
-Analizzare le problematiche di sincronizzazione tra thread.
+Questo repository contiene una simulazione didattica di un sistema distribuito basato su token, implementato in Java tramite una **lista concatenata circolare di thread**. Ogni nodo è modellato come un thread che riceve e passa un token al nodo successivo, simulando la mutua esclusione e il controllo distribuito.
 
-Modellare strutture dati circolari e il loro impiego in contesti distribuiti.
+Il progetto è pensato per studenti di **ingegneria informatica** e per docenti che desiderano introdurre concetti di concorrenza, sincronizzazione e modellazione distribuita in modo osservabile e modulare.
 
-Simulare comportamenti non deterministici e introdurre variabilità controllata.
+## 🎯 Obiettivi Formativi
 
-Introdurre concetti di clock logici e causalità (estendibile).
+- Comprendere il funzionamento dei protocolli distribuiti basati su token.
+- Analizzare la sincronizzazione tra thread in Java.
+- Modellare strutture dati circolari e il loro impiego nel controllo distribuito.
+- Introdurre comportamenti probabilistici nei nodi.
+- Fornire una base estendibile per concetti avanzati come clock logici, fault tolerance e messaggistica.
 
-🧠 Architettura del sistema
-Nodo: ogni thread rappresenta un nodo della rete. È dotato di un flag haToken e di un riferimento al nodo successivo.
+## 🧠 Architettura
 
-Lista concatenata circolare: i nodi sono collegati in modo tale che l’ultimo punti al primo, formando un anello.
-
-Token: il controllo viene passato ciclicamente da un nodo all’altro. Solo il nodo che possiede il token può eseguire un’azione.
-
-Probabilità di azione: ogni nodo, quando riceve il token, ha una probabilità del 30% di eseguire un’azione visibile (stampa su console), simulando un comportamento non deterministico.
+- **Nodo (`Nodo`)**: ogni nodo è un thread con riferimento al nodo successivo. Può ricevere un token e decidere se eseguire un'azione.
+- **Lista Concatenata Circolare**: i nodi sono collegati in modo circolare, formando un anello.
+- **Passaggio del Token**: il token viene passato ciclicamente tra i nodi in modo sincronizzato.
+- **Azione Probabilistica**: ogni nodo ha una probabilità del 30% di eseguire un'azione visibile (stampa su console) quando riceve il token.
